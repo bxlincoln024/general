@@ -1,0 +1,136 @@
+2025-06-12 12:08:02.967 UTC-DEBUG-[Publisher_#1-T1]-[EmailPublisher.java:451]-oracle.documaker.publishing.EmailPublisher.configure:  Email transporter configured to connect to email server SMTPServer1 at host smtp.email.eu-frankfurt-1.oci.oraclecloud.com on port 25
+weblogic.jms.common.JMSException: weblogic.messaging.dispatcher.DispatcherException: weblogic.rjvm.PeerGoneException: ; nested exception is:
+java.io.EOFException
+at weblogic.jms.dispatcher.DispatcherAdapter.convertToJMSExceptionAndThrow(DispatcherAdapter.java:133)
+at weblogic.jms.dispatcher.DispatcherAdapter.dispatchSyncNoTran(DispatcherAdapter.java:69)
+at weblogic.jms.client.JMSProducer.toFEProducer(JMSProducer.java:1553)
+at weblogic.jms.client.JMSProducer.deliveryInternalUnified(JMSProducer.java:943)
+at weblogic.jms.client.JMSProducer.sendInternal(JMSProducer.java:614)
+at weblogic.jms.client.JMSProducer.sendWithListenerUnified(JMSProducer.java:433)
+at weblogic.jms.client.JMSProducer.sendWithListener(JMSProducer.java:421)
+at weblogic.jms.client.JMSProducer.send(JMSProducer.java:414)
+at weblogic.jms.client.WLProducerImpl.send(WLProducerImpl.java:974)
+at oracle.documaker.bus.messaging.jms.JMSMessageQueue.putBusMessage(JMSMessageQueue.java:354)
+at oracle.documaker.bus.documaker.DocumakerBus.putBusMessage(DocumakerBus.java:111)
+at oracle.documaker.receiver.monitors.QueueReceiverWorker.sendResponse(QueueReceiverWorker.java:1193)
+at oracle.documaker.receiver.monitors.QueueReceiverWorker.handleRequestV1(QueueReceiverWorker.java:1062)
+at oracle.documaker.receiver.monitors.QueueReceiverWorker.run(QueueReceiverWorker.java:209)
+at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+at java.lang.Thread.run(Thread.java:748)
+Caused by: weblogic.messaging.dispatcher.DispatcherException: weblogic.rjvm.PeerGoneException: ; nested exception is:
+java.io.EOFException
+at weblogic.messaging.dispatcher.DispatcherWrapperState.dispatchSyncTran(DispatcherWrapperState.java:400)
+at weblogic.messaging.dispatcher.DispatcherWrapperState.dispatchSyncNoTran(DispatcherWrapperState.java:436)
+at weblogic.jms.dispatcher.DispatcherAdapter.dispatchSyncNoTran(DispatcherAdapter.java:67)
+... 15 more
+Caused by: weblogic.rjvm.PeerGoneException: ; nested exception is:
+java.io.EOFException
+at weblogic.rjvm.ResponseImpl.getThrowable(ResponseImpl.java:245)
+at weblogic.messaging.dispatcher.DispatcherProxy.unmarshalResponse(DispatcherProxy.java:564)
+at weblogic.messaging.dispatcher.DispatcherProxy.dispatchSyncTranFuture(DispatcherProxy.java:224)
+at weblogic.messaging.dispatcher.DispatcherWrapperState.dispatchSyncTran(DispatcherWrapperState.java:390)
+... 17 more
+Caused by: java.io.EOFException
+at weblogic.rjvm.t3.client.MuxableSocketT3.endOfStream(MuxableSocketT3.java:194)
+at weblogic.socket.SocketMuxer.deliverExceptionAndCleanup(SocketMuxer.java:844)
+at weblogic.socket.SocketMuxer.deliverEndOfStream(SocketMuxer.java:772)
+at weblogic.socket.SocketMuxer.readReadySocketOnce(SocketMuxer.java:971)
+at weblogic.socket.SocketMuxer.readReadySocket(SocketMuxer.java:906)
+at weblogic.socket.JavaSocketMuxer.processSockets(JavaSocketMuxer.java:385)
+at weblogic.socket.SocketReaderRequest.run(SocketReaderRequest.java:30)
+at weblogic.work.ExecuteRequestAdapter.execute(ExecuteRequestAdapter.java:21)
+at weblogic.kernel.ExecuteThread.execute(ExecuteThread.java:147)
+at weblogic.kernel.ExecuteThread.run(ExecuteThread.java:119)
+weblogic.jms.common.JMSException: weblogic.messaging.dispatcher.DispatcherException: weblogic.messaging.dispatcher.DispatcherException: java.lang.Exception: Session[8] not found[methodId=4872, type=8, invocableId=<2300918944184204504.32908735>, Request=weblogic.jms.frontend.FEProducerCreateRequest@4ead43c9]partitionName=DOMAIN
+at weblogic.jms.dispatcher.DispatcherAdapter.convertToJMSExceptionAndThrow(DispatcherAdapter.java:133)
+at weblogic.jms.dispatcher.DispatcherAdapter.dispatchSync(DispatcherAdapter.java:51)
+at weblogic.jms.client.JMSSession.setupJMSProducer(JMSSession.java:3052)
+at weblogic.jms.client.JMSSession.createProducer(JMSSession.java:3078)
+at weblogic.jms.client.JMSSession.createSender(JMSSession.java:2774)
+at weblogic.jms.client.WLSessionImpl.createSender(WLSessionImpl.java:1024)
+at oracle.documaker.bus.messaging.jms.JMSMessageQueue.putBusMessage(JMSMessageQueue.java:318)
+at oracle.documaker.bus.documaker.DocumakerBus.putBusMessage(DocumakerBus.java:111)
+at oracle.documaker.receiver.monitors.QueueReceiverWorker.sendResponse(QueueReceiverWorker.java:1193)
+at oracle.documaker.receiver.monitors.QueueReceiverWorker.handleRequestV1(QueueReceiverWorker.java:1062)
+at oracle.documaker.receiver.monitors.QueueReceiverWorker.run(QueueReceiverWorker.java:209)
+at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+at java.lang.Thread.run(Thread.java:748)
+Caused by: weblogic.messaging.dispatcher.DispatcherException: weblogic.messaging.dispatcher.DispatcherException: java.lang.Exception: Session[8] not found[methodId=4872, type=8, invocableId=<2300918944184204504.32908735>, Request=weblogic.jms.frontend.FEProducerCreateRequest@4ead43c9]partitionName=DOMAIN
+at weblogic.messaging.dispatcher.DispatcherWrapperState.dispatchSyncTran(DispatcherWrapperState.java:396)
+at weblogic.messaging.dispatcher.DispatcherWrapperState.dispatchSyncNoTran(DispatcherWrapperState.java:436)
+at weblogic.messaging.dispatcher.DispatcherWrapperState.dispatchSync(DispatcherWrapperState.java:302)
+at weblogic.jms.dispatcher.DispatcherAdapter.dispatchSync(DispatcherAdapter.java:49)
+... 12 more
+Caused by: weblogic.messaging.dispatcher.DispatcherException: java.lang.Exception: Session[8] not found[methodId=4872, type=8, invocableId=<2300918944184204504.32908735>, Request=weblogic.jms.frontend.FEProducerCreateRequest@4ead43c9]partitionName=DOMAIN
+at weblogic.messaging.dispatcher.Request.doRMIResponse(Request.java:1221)
+at weblogic.messaging.dispatcher.Request.wrappedFiniteStateMachine(Request.java:1185)
+at weblogic.messaging.dispatcher.DispatcherServerRef.invoke(DispatcherServerRef.java:440)
+at weblogic.messaging.dispatcher.DispatcherServerRef.handleRequest(DispatcherServerRef.java:310)
+at weblogic.messaging.dispatcher.DispatcherServerRef.access$000(DispatcherServerRef.java:41)
+at weblogic.messaging.dispatcher.DispatcherServerRef$2.run(DispatcherServerRef.java:238)
+at weblogic.invocation.ComponentInvocationContextManager._runAs(ComponentInvocationContextManager.java:352)
+at weblogic.invocation.ComponentInvocationContextManager.runAs(ComponentInvocationContextManager.java:337)
+at weblogic.work.LivePartitionUtility.doRunWorkUnderContext(LivePartitionUtility.java:57)
+at weblogic.work.PartitionUtility.runWorkUnderContext(PartitionUtility.java:41)
+at weblogic.work.SelfTuningWorkManagerImpl.runWorkUnderContext(SelfTuningWorkManagerImpl.java:655)
+at weblogic.work.ExecuteThread.execute(ExecuteThread.java:420)
+at weblogic.work.ExecuteThread.run(ExecuteThread.java:360)
+Caused by: java.lang.Exception: Session[8] not found[methodId=4872, type=8, invocableId=<2300918944184204504.32908735>, Request=weblogic.jms.frontend.FEProducerCreateRequest@4ead43c9]partitionName=DOMAIN
+at weblogic.messaging.dispatcher.Request.wrappedFiniteStateMachine(Request.java:991)
+... 11 more
+Caused by: java.lang.Exception: Session[8] not found
+at weblogic.messaging.dispatcher.InvocableManager.invocableFind(InvocableManager.java:144)
+at weblogic.jms.dispatcher.InvocableManagerDelegate$MyInvocableManager.invocableFind(InvocableManagerDelegate.java:454)
+at weblogic.messaging.dispatcher.Request.wrappedFiniteStateMachine(Request.java:987)
+... 11 more
+weblogic.jms.common.JMSException: weblogic.messaging.dispatcher.DispatcherException: weblogic.messaging.dispatcher.DispatcherException: java.lang.Exception: Session[8] not found[methodId=4872, type=8, invocableId=<2300918944184204504.32908735>, Request=weblogic.jms.frontend.FEProducerCreateRequest@2ef4d8b7]partitionName=DOMAIN
+at weblogic.jms.dispatcher.DispatcherAdapter.convertToJMSExceptionAndThrow(DispatcherAdapter.java:133)
+at weblogic.jms.dispatcher.DispatcherAdapter.dispatchSync(DispatcherAdapter.java:51)
+at weblogic.jms.client.JMSSession.setupJMSProducer(JMSSession.java:3052)
+at weblogic.jms.client.JMSSession.createProducer(JMSSession.java:3078)
+at weblogic.jms.client.JMSSession.createSender(JMSSession.java:2774)
+at weblogic.jms.client.WLSessionImpl.createSender(WLSessionImpl.java:1024)
+at oracle.documaker.bus.messaging.jms.JMSMessageQueue.putBusMessage(JMSMessageQueue.java:318)
+at oracle.documaker.bus.documaker.DocumakerBus.putBusMessage(DocumakerBus.java:111)
+at oracle.documaker.receiver.monitors.QueueReceiverWorker.sendResponse(QueueReceiverWorker.java:1193)
+at oracle.documaker.receiver.monitors.QueueReceiverWorker.handleRequestV1(QueueReceiverWorker.java:1062)
+at oracle.documaker.receiver.monitors.QueueReceiverWorker.run(QueueReceiverWorker.java:209)
+at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+at java.lang.Thread.run(Thread.java:748)
+Caused by: weblogic.messaging.dispatcher.DispatcherException: weblogic.messaging.dispatcher.DispatcherException: java.lang.Exception: Session[8] not found[methodId=4872, type=8, invocableId=<2300918944184204504.32908735>, Request=weblogic.jms.frontend.FEProducerCreateRequest@2ef4d8b7]partitionName=DOMAIN
+at weblogic.messaging.dispatcher.DispatcherWrapperState.dispatchSyncTran(DispatcherWrapperState.java:396)
+at weblogic.messaging.dispatcher.DispatcherWrapperState.dispatchSyncNoTran(DispatcherWrapperState.java:436)
+at weblogic.messaging.dispatcher.DispatcherWrapperState.dispatchSync(DispatcherWrapperState.java:302)
+at weblogic.jms.dispatcher.DispatcherAdapter.dispatchSync(DispatcherAdapter.java:49)
+... 12 more
+Caused by: weblogic.messaging.dispatcher.DispatcherException: java.lang.Exception: Session[8] not found[methodId=4872, type=8, invocableId=<2300918944184204504.32908735>, Request=weblogic.jms.frontend.FEProducerCreateRequest@2ef4d8b7]partitionName=DOMAIN
+at weblogic.messaging.dispatcher.Request.doRMIResponse(Request.java:1221)
+at weblogic.messaging.dispatcher.Request.wrappedFiniteStateMachine(Request.java:1185)
+at weblogic.messaging.dispatcher.DispatcherServerRef.invoke(DispatcherServerRef.java:440)
+at weblogic.messaging.dispatcher.DispatcherServerRef.handleRequest(DispatcherServerRef.java:310)
+at weblogic.messaging.dispatcher.DispatcherServerRef.access$000(DispatcherServerRef.java:41)
+at weblogic.messaging.dispatcher.DispatcherServerRef$2.run(DispatcherServerRef.java:238)
+at weblogic.invocation.ComponentInvocationContextManager._runAs(ComponentInvocationContextManager.java:352)
+at weblogic.invocation.ComponentInvocationContextManager.runAs(ComponentInvocationContextManager.java:337)
+at weblogic.work.LivePartitionUtility.doRunWorkUnderContext(LivePartitionUtility.java:57)
+at weblogic.work.PartitionUtility.runWorkUnderContext(PartitionUtility.java:41)
+at weblogic.work.SelfTuningWorkManagerImpl.runWorkUnderContext(SelfTuningWorkManagerImpl.java:655)
+at weblogic.work.ExecuteThread.execute(ExecuteThread.java:420)
+at weblogic.work.ExecuteThread.run(ExecuteThread.java:360)
+Caused by: java.lang.Exception: Session[8] not found[methodId=4872, type=8, invocableId=<2300918944184204504.32908735>, Request=weblogic.jms.frontend.FEProducerCreateRequest@2ef4d8b7]partitionName=DOMAIN
+at weblogic.messaging.dispatcher.Request.wrappedFiniteStateMachine(Request.java:991)
+... 11 more
+Caused by: java.lang.Exception: Session[8] not found
+at weblogic.messaging.dispatcher.InvocableManager.invocableFind(InvocableManager.java:144)
+at weblogic.jms.dispatcher.InvocableManagerDelegate$MyInvocableManager.invocableFind(InvocableManagerDelegate.java:454)
+at weblogic.messaging.dispatcher.Request.wrappedFiniteStateMachine(Request.java:987)
+... 11 more
+2025-06-12 12:08:58.851 UTC-ERROR-[Receiver_#1-T1-QueueReceiverWorker-1]-[QueueReceiverWorker.java:1069]-oracle.documaker.receiver.monitors.QueueReceiverWorker.handleRequestV1:  Unexpected exception:  java.io.IOException: Send operation failed!
+2025-06-12 12:08:58.971 UTC-ERROR-[Receiver_#1-T1-QueueReceiver]-[QueueReceiver.java:560]-oracle.documaker.receiver.monitors.QueueReceiver.run:  Unexpected exception:  weblogic.jms.common.JMSException: weblogic.messaging.dispatcher.DispatcherException: weblogic.rjvm.PeerGoneException: ; nested exception is:
+java.io.EOFException
+<Thu Jun 12 12:08:58 UTC 2025> <Warning> <JNDI> <WL-050001> <WLContext.close() was called in a different thread than the one in which it was created.>
+<Thu Jun 12 12:08:58 UTC 2025> <Warning> <JNDI> <WL-050001> <WLContext.close() was called in a different thread than the one in which it was created.>
+
